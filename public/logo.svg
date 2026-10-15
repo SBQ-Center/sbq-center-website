@@ -1,0 +1,77 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7E7B3"/>
+      <stop offset="35%" stop-color="#D7B66A"/>
+      <stop offset="60%" stop-color="#B9872D"/>
+      <stop offset="100%" stop-color="#F7E7B3"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A2444"/>
+      <stop offset="100%" stop-color="#102A43"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <circle cx="570" cy="170" r="118" fill="url(#navy)" stroke="url(#gold)" stroke-width="11"/>
+    <circle cx="570" cy="170" r="102" fill="none" stroke="url(#gold)" stroke-width="4" opacity="0.9"/>
+    <circle cx="570" cy="170" r="62" fill="#EADFB6" opacity="0.18"/>
+
+    <path d="M432 170H510" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M630 170H708" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M570 108V140" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M570 200V232" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+
+    <path d="M504 121C541 95 560 88 570 88C580 88 598 95 636 121" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M465 174C517 144 527 140 570 140C612 140 623 144 675 174" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+
+    <g transform="translate(0 -10)">
+      <g transform="translate(460 103)">
+        <path d="M38 28C32 18 20 11 8 12C34 6 57 6 79 16L88 12C75 7 62 5 46 5C28 5 13 9 0 18L28 62L52 80L74 64L38 28Z" fill="#D5B77C" opacity="0.9"/>
+        <path d="M70 54C56 37 58 18 76 5C94 18 98 38 96 58L70 54Z" fill="#D5B77C" opacity="0.95"/>
+        <path d="M99 59L138 29L130 70L97 93L99 59Z" fill="#D5B77C" opacity="0.98"/>
+        <path d="M132 63L164 100L138 131L104 101L132 63Z" fill="#D5B77C" opacity="0.9"/>
+      </g>
+    </g>
+
+    <g transform="translate(0 0)">
+      <path d="M476 256C510 235 540 230 570 230C600 230 630 235 664 256L630 300H510L476 256Z" fill="#D7B66A" opacity="0.9"/>
+      <path d="M512 306H628C639 306 648 315 648 326C648 337 639 346 628 346H512C501 346 492 337 492 326C492 315 501 306 512 306Z" fill="#D7B66A" opacity="0.9"/>
+    </g>
+  </g>
+
+  <g>
+    <path d="M128 315C220 246 265 180 331 151C390 124 443 127 473 149C460 180 419 195 372 200C333 203 292 191 251 167C216 147 185 139 162 146C126 158 97 201 86 244C74 208 88 194 128 315Z" fill="#C6A05E" opacity="0.92"/>
+    <path d="M1010 315C918 246 873 180 807 151C748 124 695 127 665 149C678 180 719 195 766 200C805 203 846 191 887 167C922 147 953 139 976 146C1012 158 1041 201 1052 244C1064 208 1050 194 1010 315Z" fill="#C6A05E" opacity="0.92"/>
+  </g>
+
+  <g>
+    <path d="M462 456C530 489 555 516 570 544C585 516 610 489 678 456C710 489 727 520 734 548C646 576 563 578 570 578C577 578 494 576 406 548C413 520 430 489 462 456Z" fill="#0D2242" stroke="url(#gold)" stroke-width="10"/>
+  </g>
+
+  <g>
+    <path d="M250 455C230 335 190 295 137 285C89 276 55 306 45 364C37 406 53 451 107 481C154 507 188 521 235 525C277 528 312 516 338 488L308 450C286 430 269 427 250 455Z" fill="#0D2242" stroke="url(#gold)" stroke-width="10"/>
+    <path d="M949 455C969 335 1009 295 1062 285C1110 276 1144 306 1154 364C1162 406 1146 451 1092 481C1045 507 1011 521 964 525C922 528 887 516 861 488L891 450C913 430 930 427 949 455Z" fill="#0D2242" stroke="url(#gold)" stroke-width="10"/>
+  </g>
+
+  <g>
+    <text x="600" y="430" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="250" fill="#0B1F33" stroke="url(#gold)" stroke-width="12" paint-order="stroke fill">SBQ</text>
+    <text x="600" y="430" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="250" fill="url(#gold)" opacity="0.2">SBQ</text>
+  </g>
+
+  <g>
+    <path d="M650 292C770 277 845 280 910 307C955 326 987 358 1001 391C940 432 880 457 806 468C747 477 689 472 603 444L650 292Z" fill="#F2D58C" opacity="0.85"/>
+    <circle cx="840" cy="353" r="113" fill="url(#navy)" stroke="url(#gold)" stroke-width="9"/>
+    <circle cx="840" cy="353" r="94" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <path d="M834 253C880 270 920 297 947 335C890 335 864 352 840 385C815 351 792 335 734 335C758 296 793 272 834 253Z" fill="#D8B566"/>
+    <path d="M731 349H949" stroke="url(#gold)" stroke-width="3" opacity="0.7"/>
+    <path d="M840 255V446" stroke="url(#gold)" stroke-width="3" opacity="0.7"/>
+    <path d="M734 353C782 421 800 447 840 450C878 447 902 421 949 353" stroke="url(#gold)" stroke-width="3" opacity="0.8"/>
+    <path d="M840 255C902 311 926 329 949 353C926 376 902 394 840 449C778 394 754 376 731 353C754 329 778 311 840 255Z" fill="none" stroke="url(#gold)" stroke-width="3" opacity="0.7"/>
+  </g>
+
+  <g>
+    <text x="600" y="560" text-anchor="middle" font-family="Tahoma, Arial, sans-serif" font-weight="800" font-size="44" fill="#0B1F33" stroke="url(#gold)" stroke-width="3.5" paint-order="stroke fill">مركز سبق للدراسات والخدمات الاستشارية</text>
+    <text x="600" y="594" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="24" letter-spacing="1.5" fill="#0B1F33" opacity="0.8">SBQ CENTER FOR STUDIES AND CONSULTING SERVICES</text>
+  </g>
+</svg>

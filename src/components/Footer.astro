@@ -18,10 +18,7 @@ const { lang = 'ar', links, centerName, centerTagline, copyright } = Astro.props
   <div class="container">
     <div class="site-footer__inner">
       <div class="site-footer__brand">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="40" height="40" rx="8" fill="#c5a55a" />
-          <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="20" font-weight="800" fill="#1b2a4a" font-family="Poppins, sans-serif">S</text>
-        </svg>
+        <img src="/logo.svg" alt={centerName} class="site-footer__brand-logo" />
         <span class="site-footer__brand-name">{centerName}</span>
         <span class="site-footer__tagline">{centerTagline}</span>
       </div>

@@ -1,10 +1,4 @@
 ---
-/**
- * Header.astro — Sticky site header with responsive nav
- * Props:
- *   lang ('ar' | 'en'), links (array of {href, label, active})
- *   langHref (URL for the other language page)
- */
 export interface NavLink {
   href: string;
   label: string;
@@ -27,10 +21,7 @@ const menuLabel = isAr ? 'فتح القائمة' : 'Open menu';
 <header class="site-header" data-component="site-header">
   <div class="site-header__inner">
     <a href={isAr ? '/' : '/en/'} class="logo" aria-label={centerName}>
-      <svg class="logo__mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="40" height="40" rx="8" fill="#c5a55a" />
-        <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="20" font-weight="800" fill="#1b2a4a" font-family="Poppins, sans-serif">S</text>
-      </svg>
+      <img src="/logo.svg" alt={centerName} class="logo__brand-image" />
       <span class="logo__text">
         <span class="logo__name">{centerName}</span>
         <span class="logo__tagline">{centerTagline}</span>
@@ -78,7 +69,6 @@ const menuLabel = isAr ? 'فتح القائمة' : 'Open menu';
 
 <script>
 (() => {
-  // Scope to the header component and related global panel elements
   const root = document.querySelector('[data-component="site-header"]');
   if (!root) return;
 
@@ -108,7 +98,6 @@ const menuLabel = isAr ? 'فتح القائمة' : 'Open menu';
     document.body.style.overflow = '';
   }
 
-  // Ensure event listeners are attached after DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', attach);
   } else {
@@ -124,13 +113,9 @@ const menuLabel = isAr ? 'فتح القائمة' : 'Open menu';
       }
     });
 
-    // Close on link click inside panel
     panel.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-
-    // Close on overlay click
     overlay.addEventListener('click', closeMenu);
 
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
         closeMenu();
