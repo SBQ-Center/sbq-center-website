@@ -24,7 +24,7 @@ const centerTagline = isAr ? 'الدراسات والاستشارات' : 'Studie
 const langLabel = isAr ? 'English' : 'العربية';
 const menuLabel = isAr ? 'فتح القائمة' : 'Open menu';
 ---
-<header class="site-header">
+<header class="site-header" data-component="site-header">
   <div class="site-header__inner">
     <a href={isAr ? '/' : '/en/'} class="logo" aria-label={centerName}>
       <svg class="logo__mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -77,48 +77,66 @@ const menuLabel = isAr ? 'فتح القائمة' : 'Open menu';
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
 <script>
-  const toggle = document.querySelector('.menu-toggle');
+(() => {
+  // Scope to the header component and related global panel elements
+  const root = document.querySelector('[data-component="site-header"]');
+  if (!root) return;
+
+  const toggle = root.querySelector('.menu-toggle');
   const panel = document.getElementById('nav-mobile');
   const overlay = document.getElementById('nav-overlay');
+  if (!toggle || !panel || !overlay) return;
 
-  const isAr = document.documentElement.lang === 'ar';
-  const openLabel = isAr ? 'فتح القائمة' : 'Open menu';
-  const closeLabel = isAr ? 'إغلاق القائمة' : 'Close menu';
+  const docLang = document.documentElement.lang || 'ar';
+  const isArLocal = docLang === 'ar';
+  const openLabel = isArLocal ? 'فتح القائمة' : 'Open menu';
+  const closeLabel = isArLocal ? 'إغلاق القائمة' : 'Close menu';
 
   function openMenu() {
-    toggle?.setAttribute('aria-expanded', 'true');
-    toggle?.setAttribute('aria-label', closeLabel);
-    panel?.classList.add('is-open');
-    overlay?.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', closeLabel);
+    panel.classList.add('is-open');
+    overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
-    toggle?.setAttribute('aria-expanded', 'false');
-    toggle?.setAttribute('aria-label', openLabel);
-    panel?.classList.remove('is-open');
-    overlay?.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', openLabel);
+    panel.classList.remove('is-open');
+    overlay.classList.remove('is-open');
     document.body.style.overflow = '';
   }
 
-  toggle?.addEventListener('click', () => {
-    if (toggle.getAttribute('aria-expanded') === 'true') {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
+  // Ensure event listeners are attached after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attach);
+  } else {
+    attach();
+  }
 
-  panel?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+  function attach() {
+    toggle.addEventListener('click', () => {
+      if (toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
 
-  overlay?.addEventListener('click', closeMenu);
+    // Close on link click inside panel
+    panel.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
-      closeMenu();
-      toggle?.focus();
-    }
-  });
+    // Close on overlay click
+    overlay.addEventListener('click', closeMenu);
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+  }
+})();
 </script>
