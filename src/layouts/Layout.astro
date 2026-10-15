@@ -14,7 +14,12 @@ export interface Props {
 }
 
 const { title, description, lang = 'ar', dir = 'rtl' } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+let canonical = '';
+try {
+  canonical = new URL(Astro.url.pathname, Astro.site).toString();
+} catch (e) {
+  canonical = Astro.url.pathname;
+}
 ---
 <!DOCTYPE html>
 <html lang={lang} dir={dir}>
@@ -24,6 +29,19 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <title>{title}</title>
+
+    <!-- Basic SEO / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#102a43" />
+
+    <!-- Favicon (place your favicon at /public/favicon.ico) -->
+    <link rel="icon" href="/favicon.ico" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
