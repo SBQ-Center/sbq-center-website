@@ -1,0 +1,59 @@
+---
+export interface ContactItem {
+  icon: string;
+  text: string;
+}
+
+export interface Props {
+  title: string;
+  description: string;
+  items: ContactItem[];
+  formTitle: string;
+  nameLabel: string;
+  emailLabel: string;
+  messageLabel: string;
+  namePlaceholder: string;
+  emailPlaceholder: string;
+  messagePlaceholder: string;
+  submitText: string;
+}
+
+const {
+  title, description, items, formTitle,
+  nameLabel, emailLabel, messageLabel,
+  namePlaceholder, emailPlaceholder, messagePlaceholder, submitText
+} = Astro.props;
+---
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <div class="contact">
+      <div class="contact__info">
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <div class="contact__details">
+          {items.map(item => (
+            <div class="contact__item">
+              <span class="contact__item-icon" aria-hidden="true">{item.icon}</span>
+              <span>{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <form class="contact__form" aria-label={formTitle}>
+        <div class="form-group">
+          <label for="name">{nameLabel}</label>
+          <input type="text" id="name" name="name" placeholder={namePlaceholder} required />
+        </div>
+        <div class="form-group">
+          <label for="email">{emailLabel}</label>
+          <input type="email" id="email" name="email" placeholder={emailPlaceholder} required />
+        </div>
+        <div class="form-group">
+          <label for="message">{messageLabel}</label>
+          <textarea id="message" name="message" placeholder={messagePlaceholder} required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%">{submitText}</button>
+      </form>
+    </div>
+  </div>
+</section>

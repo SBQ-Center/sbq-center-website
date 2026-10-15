@@ -1,0 +1,38 @@
+---
+export interface Stat {
+  number: string;
+  label: string;
+}
+
+export interface Props {
+  title: string;
+  paragraphs: string[];
+  listItems: string[];
+  stats: Stat[];
+}
+
+const { title, paragraphs, listItems, stats } = Astro.props;
+---
+<section class="section section--alt" id="about">
+  <div class="container">
+    <div class="about">
+      <div class="about__content">
+        <h2>{title}</h2>
+        {paragraphs.map(p => <p>{p}</p>)}
+        <ul class="about__list">
+          {listItems.map(item => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="about__visual">
+        <div class="about__stats">
+          {stats.map(stat => (
+            <div>
+              <div class="about__visual-number">{stat.number}</div>
+              <div class="about__visual-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

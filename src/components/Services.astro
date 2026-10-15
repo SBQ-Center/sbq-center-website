@@ -1,0 +1,30 @@
+---
+export interface ServiceItem {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+export interface Props {
+  title: string;
+  subtitle: string;
+  items: ServiceItem[];
+}
+
+const { title, subtitle, items } = Astro.props;
+---
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="section__title">{title}</h2>
+    <p class="section__subtitle">{subtitle}</p>
+    <div class="services-grid">
+      {items.map(item => (
+        <article class="service-card">
+          <div class="service-card__icon" aria-hidden="true">{item.icon}</div>
+          <h3 class="service-card__title">{item.title}</h3>
+          <p class="service-card__desc">{item.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

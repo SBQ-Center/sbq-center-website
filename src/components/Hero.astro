@@ -1,0 +1,29 @@
+---
+/**
+ * Hero.astro — Main hero section
+ */
+export interface Props {
+  badge: string;
+  title: string;
+  description: string;
+  primaryBtnText: string;
+  primaryBtnHref: string;
+  secondaryBtnText: string;
+  secondaryBtnHref: string;
+}
+
+const { badge, title, description, primaryBtnText, primaryBtnHref, secondaryBtnText, secondaryBtnHref } = Astro.props;
+---
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__badge">{badge}</span>
+      <h1 class="hero__title" set:html={title}></h1>
+      <p class="hero__desc">{description}</p>
+      <div class="hero__actions">
+        <a href={primaryBtnHref} class="btn btn--primary">{primaryBtnText}</a>
+        <a href={secondaryBtnHref} class="btn btn--outline">{secondaryBtnText}</a>
+      </div>
+    </div>
+  </div>
+</section>

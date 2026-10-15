@@ -1,118 +1,118 @@
 ---
-import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
+import Features from '../components/Features.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const navLinks = [
+  { href: '#home', label: 'الرئيسية', active: true },
+  { href: '#services', label: 'خدماتنا' },
+  { href: '#about', label: 'من نحن' },
+  { href: '#features', label: 'مميزاتنا' },
+  { href: '#contact', label: 'تواصل معنا' },
+];
+
+const footerLinks = [
+  { href: '#home', label: 'الرئيسية' },
+  { href: '#services', label: 'خدماتنا' },
+  { href: '#about', label: 'من نحن' },
+  { href: '#features', label: 'مميزاتنا' },
+  { href: '#contact', label: 'تواصل معنا' },
+];
 ---
 
-<!doctype html>
-<html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="مركز سبق للدراسات والخدمات الاستشارية، من عمق المعرفة إلى صواب القرار" />
-    <title>مركز سبق للدراسات والخدمات الاستشارية</title>
-  </head>
-  <body>
-    <div class="top">
-      <div class="container">
-        <span>من عمق المعرفة إلى صواب القرار</span>
-        <span>مركز بحثي واستشاري مستقل</span>
-      </div>
-    </div>
+<Layout
+  title="مركز سبق للدراسات والخدمات الاستشارية"
+  description="مركز سبق للدراسات والخدمات الاستشارية — نقدم دراسات متخصصة واستشارات استراتيجية وحلولًا عملية لخدمة المؤسسات والأفراد نحو تميز استشاري يصنع الفرق."
+  lang="ar"
+  dir="rtl"
+>
+  <Header lang="ar" links={navLinks} langHref="/en/" />
 
-    <header class="header">
-      <div class="container nav">
-        <a class="brand" href="/" aria-label="الصفحة الرئيسية">
-          <span class="mark">SBQ</span>
-          <span>مركز سبق</span>
-        </a>
+  <main id="main">
+    <Hero
+      badge="نحو تميز استشاري يصنع الفرق"
+      title="مركز سبق للدراسات والخدمات <span class='accent'>الاستشارية</span>"
+      description="نقدم دراسات متخصصة واستشارات استراتيجية وحلولًا عملية لخدمة المؤسسات والأفراد، بمنهجية علمية وخبرة احترافية تحقق أهدافكم بكفاءة وفعالية."
+      primaryBtnText="خدماتنا"
+      primaryBtnHref="#services"
+      secondaryBtnText="تواصل معنا"
+      secondaryBtnHref="#contact"
+    />
 
-        <div class="nav-group">
-          <button
-            class="nav-toggle"
-            type="button"
-            aria-label="فتح القائمة"
-            aria-expanded="false"
-            aria-controls="site-nav"
-          >
-            ☰
-          </button>
+    <Services
+      title="خدماتنا"
+      subtitle="باقة متكاملة من الخدمات الاستشارية والدراسية المصممة لتلبية احتياجاتكم"
+      items={[
+        { icon: '📊', title: 'دراسات وتقارير', desc: 'إعداد دراسات جدوى وتقارير تحليلية متخصصة تدعم قراراتكم الاستراتيجية بالبيانات والأدلة.' },
+        { icon: '🎯', title: 'استشارات استراتيجية', desc: 'تقديم استشارات احترافية في التخطيط الاستراتيجي وإدارة المشاريع وتطوير الأعمال.' },
+        { icon: '🎓', title: 'تدريب وتطوير', desc: 'برامج تدريبية متخصصة لتطوير الكوادر البشرية وبناء القدرات المؤسسية المستدامة.' },
+        { icon: '📈', title: 'تحليل بيانات', desc: 'تحليل البيانات وإعداد المؤشرات الإحصائية لرصد الأداء واتخاذ قرارات مبنية على الدليل.' },
+        { icon: '📋', title: 'تقييم ومراجعة', desc: 'تقييم الأداء المؤسسي ومراجعة العمليات لضمان التمتثل لأفضل الممارسات العالمية.' },
+        { icon: '🌍', title: 'دراسات سوق', desc: 'أبحاث السوق ودراسة المنافسين وتحليل الفرص الاستثمارية في الأسواق المحلية والإقليمية.' },
+      ]}
+    />
 
-          <nav id="site-nav" class="links" aria-label="القائمة الرئيسية">
-            <a href="#about">عن المركز</a>
-            <a href="#publications">الإصدارات</a>
-            <a href="#programs">البرامج</a>
-            <a href="#services">الخدمات</a>
-            <a href="#experts">الخبراء</a>
-            <a href="#contact">تواصل معنا</a>
-          </nav>
-        </div>
+    <About
+      title="من نحن"
+      paragraphs={[
+        'مركز سبق للدراسات والخدمات الاستشارية هو مركز متخصص يقدم حلولًا استشارية ودراسية مبتكرة للمؤسسات والأفراد. نسعى لتحقيق التميز في تقديم الخدمات الاستشارية من خلال منهجية علمية وفريق عمل احترافي ذي خبرة واسعة في مجالات متنوعة.',
+        'نؤمن بأن النجاح يبدأ بقرار مدروس، ولذلك نحرص على تقديم دراسات دقيقة واستشارات عملية تساعد عملاءنا على تحقيق أهدافهم بكفاءة وفعالية.',
+      ]}
+      listItems={[
+        'فريق من المستشارين والخبراء المعتمدين',
+        'منهجية علمية مدعومة بالبيانات والأدلة',
+        'حلول مخصصة تناسب احتياجات كل عميل',
+        'التزام بالسرية والمهنية في كل تعاملاتنا',
+      ]}
+      stats={[
+        { number: '+50', label: 'دراسة منجزة' },
+        { number: '+30', label: 'عميل ومؤسسة' },
+        { number: '+10', label: 'سنوات خبرة' },
+        { number: '%100', label: 'رضا العملاء' },
+      ]}
+    />
 
-        <a class="lang" href="/en/">English</a>
-      </div>
-    </header>
+    <Features
+      title="مميزاتنا"
+      subtitle="لماذا يختارنا العملاء؟ لأننا نقدم قيمة حقيقية ونتائج ملموسة"
+      items={[
+        { icon: '⭐', title: 'خبرة احترافية', desc: 'فريق من الخبراء بخبرة تزيد عن عشر سنوات في المجال الاستشاري.' },
+        { icon: '🔬', title: 'منهجية علمية', desc: 'نعتمد على منهجيات علمية مثبتة في جميع دراساتنا واستشاراتنا.' },
+        { icon: '🤝', title: 'شراكة مستدامة', desc: 'نبني علاقات شراكة طويلة الأمد مع عملائنا نحو نجاح مشترك.' },
+        { icon: '⚡', title: 'حلول سريعة', desc: 'نقدم حلولًا عملية في الوقت المحدد دون المساس بجودة المخرجات.' },
+      ]}
+    />
 
-    <main>
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <div class="eyebrow">مركز سبق للدراسات والخدمات الاستشارية</div>
-            <h1>من عمق المعرفة<br />إلى صواب القرار</h1>
-            <p>
-              منصة بحثية واستشارية مستقلة تنتج المعرفة وتحلل السياسات، وتقدم حلولًا عملية تساعد المؤسسات
-              وصنّاع القرار على فهم التحولات وصناعة خيارات أكثر استنارة.
-            </p>
-            <div class="actions">
-              <a class="btn" href="#publications">استكشف الإصدارات</a>
-              <a class="btn secondary" href="#services">اطلب خدمة استشارية</a>
-            </div>
-          </div>
+    <Contact
+      title="تواصل معنا"
+      description="نحن هنا للإجابة على استفساراتكم ومساعدتكم في تحقيق أهدافكم. تواصلوا معنا اليوم."
+      items={[
+        { icon: '📧', text: 'info@sbq-center.com' },
+        { icon: '📞', text: '+966 50 000 0000' },
+        { icon: '📍', text: 'الرياض، المملكة العربية السعودية' },
+        { icon: '🕐', text: 'الأحد - الخميس: 9 ص - 5 م' },
+      ]}
+      formTitle="نموذج التواصل"
+      nameLabel="الاسم الكامل"
+      emailLabel="البريد الإلكتروني"
+      messageLabel="رسالتك"
+      namePlaceholder="أدخل اسمك الكامل"
+      emailPlaceholder="example@email.com"
+      messagePlaceholder="اكتب رسالتك هنا..."
+      submitText="إرسال الرسالة"
+    />
+  </main>
 
-          <div class="lens" aria-label="رمز عدسة المعرفة"></div>
-        </div>
-      </section>
-
-      <section id="about" class="section">
-        <div class="container">
-          <div class="heading">
-            <div>
-              <h2>عن المركز</h2>
-              <p>معرفة رصينة، تحليل معمق، واستشارات تستند إلى الأدلة.</p>
-            </div>
-          </div>
-          <!-- بقية المحتوى لم يتغير -->
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="container">
-          <div class="heading">
-            <div>
-              <h2>تواصل معنا</h2>
-              <p>العنوان: اليمن — محافظة الضالع — مدينة الضالع — شارع المطار</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <script>
-      const header = document.querySelector('.header .nav');
-      const toggle = document.querySelector('.nav-toggle');
-
-      if (header && toggle) {
-        toggle.addEventListener('click', () => {
-          const isOpen = header.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        // Allow keyboard activation (Enter/Space)
-        toggle.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggle.click();
-          }
-        });
-      }
-    </script>
-  </body>
-</html>
+  <Footer
+    lang="ar"
+    links={footerLinks}
+    centerName="مركز سبق للدراسات والخدمات الاستشارية"
+    centerTagline="نحو تميز استشاري يصنع الفرق"
+    copyright="© 2026 مركز سبق للدراسات والخدمات الاستشارية. جميع الحقوق محفوظة."
+  />
+</Layout>

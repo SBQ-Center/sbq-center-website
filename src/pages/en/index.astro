@@ -1,115 +1,118 @@
 ---
-import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Services from '../../components/Services.astro';
+import About from '../../components/About.astro';
+import Features from '../../components/Features.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+
+const navLinks = [
+  { href: '#home', label: 'Home', active: true },
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#features', label: 'Features' },
+  { href: '#contact', label: 'Contact' },
+];
+
+const footerLinks = [
+  { href: '#home', label: 'Home' },
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#features', label: 'Features' },
+  { href: '#contact', label: 'Contact' },
+];
 ---
 
-<!doctype html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="SBQ Center for Studies and Consulting Services" />
-    <title>SBQ Center for Studies and Consulting Services</title>
-  </head>
-  <body class="en">
-    <div class="top">
-      <div class="container">
-        <span>From deep knowledge to sound decisions</span>
-        <span>Independent research and consulting center</span>
-      </div>
-    </div>
+<Layout
+  title="Sabq Center for Studies and Consulting Services"
+  description="Sabq Center for Studies and Consulting Services — Specialized studies, strategic consulting, and practical solutions for organizations and individuals toward consulting excellence."
+  lang="en"
+  dir="ltr"
+>
+  <Header lang="en" links={navLinks} langHref="/" />
 
-    <header class="header">
-      <div class="container nav">
-        <a class="brand" href="/en/" aria-label="Home">
-          <span class="mark">SBQ</span>
-          <span>SBQ Center</span>
-        </a>
+  <main id="main">
+    <Hero
+      badge="Towards Consulting Excellence That Makes a Difference"
+      title="Sabq Center for Studies and <span class='accent'>Consulting Services</span>"
+      description="We provide specialized studies, strategic consulting, and practical solutions for organizations and individuals, backed by scientific methodology and professional expertise to achieve your goals efficiently and effectively."
+      primaryBtnText="Our Services"
+      primaryBtnHref="#services"
+      secondaryBtnText="Contact Us"
+      secondaryBtnHref="#contact"
+    />
 
-        <div class="nav-group">
-          <button
-            class="nav-toggle"
-            type="button"
-            aria-label="Open menu"
-            aria-expanded="false"
-            aria-controls="site-nav"
-          >
-            ☰
-          </button>
+    <Services
+      title="Our Services"
+      subtitle="A comprehensive suite of consulting and research services designed to meet your needs"
+      items={[
+        { icon: '📊', title: 'Studies & Reports', desc: 'Preparing feasibility studies and specialized analytical reports that support your strategic decisions with data and evidence.' },
+        { icon: '🎯', title: 'Strategic Consulting', desc: 'Professional consulting in strategic planning, project management, and business development.' },
+        { icon: '🎓', title: 'Training & Development', desc: 'Specialized training programs to develop human capital and build sustainable institutional capabilities.' },
+        { icon: '📈', title: 'Data Analysis', desc: 'Data analysis and statistical indicators to monitor performance and make evidence-based decisions.' },
+        { icon: '📋', title: 'Evaluation & Review', desc: 'Institutional performance evaluation and process review to ensure compliance with global best practices.' },
+        { icon: '🌍', title: 'Market Research', desc: 'Market research, competitor analysis, and investment opportunity assessment in local and regional markets.' },
+      ]}
+    />
 
-          <nav id="site-nav" class="links" aria-label="Main navigation">
-            <a href="#about">About</a>
-            <a href="#publications">Publications</a>
-            <a href="#programs">Programs</a>
-            <a href="#services">Services</a>
-            <a href="#experts">Experts</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
+    <About
+      title="About Us"
+      paragraphs={[
+        'Sabq Center for Studies and Consulting Services is a specialized center providing innovative consulting and research solutions for organizations and individuals. We strive for excellence in delivering consulting services through scientific methodology and a professional team with extensive experience in diverse fields.',
+        'We believe that success begins with an informed decision, and therefore we are committed to providing accurate studies and practical consultations that help our clients achieve their goals efficiently and effectively.',
+      ]}
+      listItems={[
+        'A team of certified consultants and experts',
+        'Scientific methodology supported by data and evidence',
+        'Customized solutions tailored to each client’s needs',
+        'Commitment to confidentiality and professionalism',
+      ]}
+      stats={[
+        { number: '50+', label: 'Studies Completed' },
+        { number: '30+', label: 'Clients & Organizations' },
+        { number: '10+', label: 'Years of Experience' },
+        { number: '100%', label: 'Client Satisfaction' },
+      ]}
+    />
 
-        <a class="lang" href="/">العربية</a>
-      </div>
-    </header>
+    <Features
+      title="Our Features"
+      subtitle="Why do clients choose us? Because we deliver real value and tangible results"
+      items={[
+        { icon: '⭐', title: 'Professional Expertise', desc: 'A team of experts with over ten years of experience in the consulting field.' },
+        { icon: '🔬', title: 'Scientific Approach', desc: 'We rely on proven scientific methodologies in all our studies and consultations.' },
+        { icon: '🤝', title: 'Sustainable Partnership', desc: 'We build long-term partnerships with our clients toward mutual success.' },
+        { icon: '⚡', title: 'Fast Solutions', desc: 'We deliver practical solutions on time without compromising output quality.' },
+      ]}
+    />
 
-    <main>
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <div class="eyebrow">SBQ Center for Studies and Consulting Services</div>
-            <h1>From Deep Knowledge<br />to Sound Decisions</h1>
-            <p>
-              An independent research and consulting platform producing knowledge, analyzing policy,
-              and delivering practical solutions that help institutions and decision-makers navigate change.
-            </p>
-            <div class="actions">
-              <a class="btn" href="#publications">Explore Publications</a>
-              <a class="btn secondary" href="#services">Request a Service</a>
-            </div>
-          </div>
+    <Contact
+      title="Contact Us"
+      description="We are here to answer your inquiries and help you achieve your goals. Get in touch with us today."
+      items={[
+        { icon: '📧', text: 'info@sbq-center.com' },
+        { icon: '📞', text: '+966 50 000 0000' },
+        { icon: '📍', text: 'Riyadh, Saudi Arabia' },
+        { icon: '🕐', text: 'Sun - Thu: 9 AM - 5 PM' },
+      ]}
+      formTitle="Contact Form"
+      nameLabel="Full Name"
+      emailLabel="Email Address"
+      messageLabel="Your Message"
+      namePlaceholder="Enter your full name"
+      emailPlaceholder="example@email.com"
+      messagePlaceholder="Write your message here..."
+      submitText="Send Message"
+    />
+  </main>
 
-          <div class="lens" aria-label="Knowledge lens symbol"></div>
-        </div>
-      </section>
-
-      <section id="about" class="section">
-        <div class="container">
-          <div class="heading">
-            <div>
-              <h2>About the Center</h2>
-              <p>Rigorous knowledge, in-depth analysis, and evidence-based consulting.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="container">
-          <div class="heading">
-            <div>
-              <h2>Contact Us</h2>
-              <p>Address: Yemen — Al-Dhalea Governorate — Al-Dhalea City — Airport Street</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <script>
-      const header = document.querySelector('.header .nav');
-      const toggle = document.querySelector('.nav-toggle');
-
-      if (header && toggle) {
-        toggle.addEventListener('click', () => {
-          const isOpen = header.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        toggle.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggle.click();
-          }
-        });
-      }
-    </script>
-  </body>
-</html>
+  <Footer
+    lang="en"
+    links={footerLinks}
+    centerName="Sabq Center for Studies and Consulting Services"
+    centerTagline="Towards Consulting Excellence That Makes a Difference"
+    copyright="© 2026 Sabq Center for Studies and Consulting Services. All rights reserved."
+  />
+</Layout>
